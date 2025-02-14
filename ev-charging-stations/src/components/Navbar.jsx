@@ -18,15 +18,15 @@ const Navbar = () => {
   return (
     <>
     <nav className='navbar'>
-        <div>
-            <h1>Logo</h1>
+    <div className="mobile-menu-toggle" onClick={toggleMenu}>
+            ☰
         </div>
-        <div className={`menu ${menuOpen ? 'mobile-menu' : ''}`}>
-            <a href='/'>Home</a>
+    <div className={`menu ${menuOpen ? 'mobile-menu' : ''}`}>
+            <a href='/'>Home Page</a>
             <a href='/'>About us</a>
 
             <div className="services-dropdown">
-                <button onClick={toggleDropdown}className='nav-link'>Services Menu</button>
+                <div onClick={toggleDropdown}className='nav-link'>Services Menu ⮟</div>
 
                 {dropdownOpen && (
                     <ul className="dropdown-list">
@@ -37,9 +37,12 @@ const Navbar = () => {
                 )}
             </div>
         </div>
-        <div className="mobile-menu-toggle" onClick={toggleMenu}>
-            ☰
+        <div>
+            <h1 className='logo'>Logo</h1>
         </div>
+        
+        
+        
     </nav>
     </>
   )

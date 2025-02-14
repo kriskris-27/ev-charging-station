@@ -1,29 +1,35 @@
 /* Global Navbar Styling */
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
     background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px; */
+      font-family: "Roboto Mono", serif;
   }
   
-  .logo h1 {
+  .logo{
     font-size: 1.5rem;
     font-weight: bold;
+    margin: 0;
   }
   
   /* Desktop menu */
   .menu {
     display: flex;
     gap: 20px;
+    align-items: center;
+  }
+  .menu a{
+    text-decoration: none;
+    color: #000000;
   }
   
   .nav-link {
     text-decoration: none;
-    color: #333;
-    padding: 10px 20px;
-    font-weight: 500;
+    
   }
   
   .nav-link:hover {
@@ -34,6 +40,7 @@
   /* Dropdown */
   .services-dropdown {
     position: relative;
+    
   }
   
   .dropdown-list {
@@ -41,8 +48,8 @@
     top: 100%;
     left: 0;
     background-color: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: .3px solid #ddd;
+    box-shadow: 0 .5px 1px rgba(0, 0, 0, 0.1);
     list-style-type: none;
     padding: 0;
     margin: 0;
