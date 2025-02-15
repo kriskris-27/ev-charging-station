@@ -1,14 +1,16 @@
 // backend/config/db.js
 const mongoose = require('mongoose');
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI); // Remove the useNewUrlParser and useUnifiedTopology options
-    console.log('MongoDB connected');
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error.message);
-    process.exit(1);
-  }
-};
+const dbConnect = async () =>{
+    try{
+        const connect = await mongoose.connect(process.env.CONNECTION_STRING);
+        console.log(`database connected:${connect.connection.host},${connect.connection.name}`)
+    }
+    catch(err) {
+        console.log("error in db connection",err)
+        process.exit(1)
+    }
+      
+}
 
-module.exports = connectDB;
+module.exports=dbConnect;
