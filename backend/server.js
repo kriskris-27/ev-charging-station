@@ -2,6 +2,7 @@ const express = require('express')
 const dbConnect =require('./config/db')
 const dotenv=require('dotenv').config();
 const authRoutes=require("./routes/authRoutes")
+const userRoutes =require("./routes/userRoutes")
 
 
 const app =express();
@@ -14,6 +15,7 @@ dbConnect();
 
 // Routes
  app.use("/api/auth",authRoutes)
+ app.use("/api/users",userRoutes)
 
 //start server
 const PORT=process.env.PORT || 3006
