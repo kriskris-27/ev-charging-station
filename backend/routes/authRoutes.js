@@ -1,16 +1,17 @@
 // backend/routes/authRoutes.js
 const express = require('express');
-const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const { authenticateJWT } = require('../middlewares/authMiddleware');
 const router = express.Router();
 
-// Login route
+// User Login route
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
-  if (!user) return res.status(400).send('User not found');
 
+  if (!user) return res.status(400).send('User not found');
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) return res.status(400).send('Invalid credentials');
 
@@ -22,7 +23,7 @@ router.post('/login', async (req, res) => {
   res.json({ token });
 });
 
-// Create super admin route (for initial setup)
+// Super Admin Creation (initial setup)
 router.post('/super-admin', async (req, res) => {
   const { username, email, password } = req.body;
 

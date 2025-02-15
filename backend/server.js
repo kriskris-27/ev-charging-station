@@ -1,6 +1,7 @@
 const express = require('express')
 const connectDB =require('./config/db')
 const authRoutes =require('./routes/authRoutes')
+const adminRoutes = require('./routes/adminRoutes');
 const cors =require('cors')
 require('dotenv').config();
 
@@ -17,6 +18,7 @@ connectDB();
 
 // Routes
 app.use('/api/auth',authRoutes);
+app.use('/api/admin', adminRoutes); 
 
 //start server
 app.listen(PORT,(error)=>{
