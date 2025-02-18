@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Navbar.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -22,8 +23,8 @@ const Navbar = () => {
             ☰
         </div>
     <div className={`menu ${menuOpen ? 'mobile-menu' : ''}`}>
-            <a href='/'>Home Page</a>
-            <a href='/'>About us</a>
+            <Link to='/'>Home Page</Link>
+            <Link to='/about'>About us</Link>
 
             <div className="services-dropdown">
                 <div onClick={toggleDropdown}className='nav-link'>Services Menu ⮟</div>
@@ -38,7 +39,7 @@ const Navbar = () => {
             </div>
         </div>
         <div>
-            <h1 className='logo'>Logo</h1>
+            <h1 className='logos'>Stralietti</h1>
         </div>
         
         

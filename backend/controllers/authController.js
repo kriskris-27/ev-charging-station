@@ -21,7 +21,7 @@ const login =async(req,res)=>{
     const {username,password} = req.body;
     const user= await User.findOne({username});
     if(!user){
-        return res.status(404).json({message:`Something went wrongg`})
+        return res.status(404).json({message:`Something went wrong`})
     }
     const isMatch =await bcrypt.compare(password,user.password)
     if(!isMatch){

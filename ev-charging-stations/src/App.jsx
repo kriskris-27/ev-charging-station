@@ -1,13 +1,17 @@
 import React from 'react'
-import Navbar from './components/Navbar'
 import './App.css'
-import HeroHeader from './components/HeroHeader'
+import Home from './pages/Home'
+import { Route, Routes } from 'react-router-dom'
+import Aboutus from './pages/Aboutus'
 
 const App = () => {
   return (
     <>
-    <Navbar/>
-    <HeroHeader/>
+    <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="about" element={<Aboutus/>}/>
+    </Routes>
+        
     </>
   )
 }

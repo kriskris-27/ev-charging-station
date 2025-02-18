@@ -1,0 +1,99 @@
+.foot{
+    background-color:#0C0C0B;
+    color: white;
+    padding: 5%;
+}
+
+.foot-top-l p,.foot-top-r p,.foot-end p{
+    font-size:.8rem ;
+    margin:4px 0
+}
+.foot-top-l h3{
+    margin: 0;
+    font-weight: 500;
+}
+.email{
+    display: flex;
+    align-items: center;
+}
+.email input{
+    padding: 10px;
+  width: 80%;
+  height: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: 1px solid #c5c5c5;
+
+}
+.foot-top-r button {
+    font-family: "Roboto Mono", serif;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid ;
+    margin: 1%;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: background-color 0.3s ease, background-image 0.3s ease;
+    
+  }
+  
+  .foot-top-r button:hover {
+    background-image: linear-gradient(to right, white, #d9e99e);
+  }
+  .foot-top-r button:active {
+    box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+  }
+  .foot-top{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 6%;
+    align-items: center;
+  }
+
+
+hr {
+    color: #ffffff;
+  }
+
+
+  li{
+    list-style-type: none;
+    padding-bottom: .4rem;
+  }
+li:hover{
+    cursor: pointer;
+}
+.foot-bottom a{
+    font-size:0.8rem ;
+    margin:5px 0;
+  }
+
+
+  .foot-bottom{
+    display: flex;
+    gap: 10%;
+    padding-bottom: 6%;
+  }
+
+ .foot-end{
+    padding-top: 4%;
+ }
+
+ @media (max-width: 768px) {
+    .foot-top{
+        flex-direction: column;
+    }
+    .foot-bottom{
+        flex-direction: column;
+    }
+ }
