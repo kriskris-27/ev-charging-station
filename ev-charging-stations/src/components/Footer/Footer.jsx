@@ -46,7 +46,7 @@ function Footer() {
                 </div>
                 <hr></hr>
                 <div className="foot-end">
-                    <h1 className="logos">Stralietti</h1>
+                    <h1 className="logos">Starlietti</h1>
                     <p>© 2025 Kris. All right reserved.</p>
 
                 </div>

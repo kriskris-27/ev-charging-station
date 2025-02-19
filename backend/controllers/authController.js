@@ -10,7 +10,7 @@ const register =async (req,res)=>{
     await newUser.save()
     res.status(201).json({message:`User registered with username ${username}`})
     } catch(err){
-        res.status(500).json({messgae:`Something went wrong${err}`});
+        res.status(500).json({messgae:`Something went wrong ${err}`});
         
 
     }
