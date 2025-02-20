@@ -1,15 +1,22 @@
 import React, { useState } from 'react'
 import './HeroHeader.css'
+import { useNavigate } from 'react-router-dom';
 
-const HeroHeader = () => {
-    const [location,setlocation]=useState(null);
+const HeroHeader = ({data,setData ,setLat,setLon}) => {
+    // console.log(data);
+    
+    const navigate =useNavigate();
+    // const [location,setlocation]=useState(null);
     const handleLocationClick = () =>{
         alert('Location access requested! To locate charging points')
 
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position)=>{
-                const {lat,lon} = position.coords;
-                setlocation({lat,lon})
+                const {latitude,longitude} = position.coords;
+                // setlocation({latitude,longitude});
+                setLon(longitude);
+                setLat(latitude);
+                sendtoback({latitude,longitude});
             },
         (error)=>{
             alert("Unable to retrieve location.Please enable location access.")
@@ -17,6 +24,36 @@ const HeroHeader = () => {
         } else{
             alert("Geolocation is not supported by this browser.")
         }
+    };
+    
+    const sendtoback =(lat,lon) => {
+        const backurl='http://localhost:3005/api/testapi/locations';
+        const range = 300; 
+        // range=300,
+    //    const lat= 11.004556
+    //    const lon = 77.028274
+        // const range=500;
+        fetch(backurl,{method:'POST',headers:{'Content-Type':'application/json',},
+        body:JSON.stringify({range,lat,lon,})
+       
+        // body:JSON.stringify({  
+        //     range:"300",
+        //     lat: "11.004556",
+        //     lon: "77.028274"
+        //    })
+        })
+        .then((response)=>response.json())
+        .then((data)=>{console.log('Location sent succesfully',data);
+        
+            setData(data)
+            // console.log(data);
+            
+            navigate("/location")
+            
+        })
+        .catch((error)=>{
+            console.log('Error sending location',error);
+        });
     };
     
   return (

@@ -40,7 +40,7 @@ const Navbar = () => {
 
                         {dropdownOpen && (
                             <ul className="dropdown-list">
-                                <li><NavLink to="/service1">Charging stations</NavLink></li>
+                                <li><NavLink to="/location">Charging stations</NavLink></li>
                                 <li><NavLink to="/service2">EV service stations</NavLink></li>
                                 <li><NavLink to="/service3">Battery shops</NavLink></li>
                             </ul>

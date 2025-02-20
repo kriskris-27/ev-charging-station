@@ -2,11 +2,15 @@ import Footer from "../components/Footer/Footer"
 import HeroHeader from "../components/HeroHeader/HeroHeader"
 import Navbar from "../components/Navbar/Navbar"
 
-const Home = () => {
+const Home = ({data,setData,setLat,setLon}) => {
   return (
     <>
     <Navbar />
-    <HeroHeader />
+    <HeroHeader data={data}
+    setData={setData}
+    setLon={setLon}
+    setLat={setLat}
+    />
     <Footer/>
     </>
   )

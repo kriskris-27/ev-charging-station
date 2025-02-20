@@ -5,8 +5,9 @@ const authRoutes=require("./routes/authRoutes")
 const userRoutes =require("./routes/userRoutes")
 const mapRoutes = require("./routes/mapRoute")
 
-
+const cors = require('cors');
 const app =express();
+app.use(cors());
 
 // Middleware
 app.use(express.json())

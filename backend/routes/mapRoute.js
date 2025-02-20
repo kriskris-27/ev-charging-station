@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const haversine = require('haversine-distance'); 
+
 router.get('/test', (req, res) => {
     res.status(200).json({ text: 'hello world' });
 });
@@ -8,20 +9,20 @@ router.get('/test', (req, res) => {
 
 const sampleData = [
   
-    // { shopName: "Shop A - 200km", lat: 41.7128, lon: -73.0060 },  // ~200km
-    // { shopName: "Shop B - 400km", lat: 42.7128, lon: -72.0060 },  // ~400km
-    // { shopName: "Shop C - 600km", lat: 43.7128, lon: -71.0060 },  // ~600km
-    // { shopName: "Shop D - 800km", lat: 44.7128, lon: -70.0060 },  // ~800km
-    // { shopName: "Shop E - 1000km", lat: 45.7128, lon: -69.0060 }, // ~1000km
-    // { shopName: "Shop F - 200km", lat: 41.0000, lon: -75.5000 },  // ~200km
-    // { shopName: "Shop G - 400km", lat: 42.5000, lon: -76.0000 },  // ~400km
-    // { shopName: "Shop H - 600km", lat: 44.0000, lon: -77.5000 },  // ~600km
-    // { shopName: "Shop I - 800km", lat: 45.5000, lon: -78.0000 },  // ~800km
-    // { shopName: "Shop J - 1000km", lat: 47.0000, lon: -79.5000 }  
+    { shopName: "Shop A - 200km", lat: 41.7128, lon: -73.0060 },  // ~200km
+    { shopName: "Shop B - 400km", lat: 42.7128, lon: -72.0060 },  // ~400km
+    { shopName: "Shop C - 600km", lat: 43.7128, lon: -71.0060 },  // ~600km
+    { shopName: "Shop D - 800km", lat: 44.7128, lon: -70.0060 },  // ~800km
+    { shopName: "Shop E - 1000km", lat: 45.7128, lon: -69.0060 }, // ~1000km
+    { shopName: "Shop F - 200km", lat: 41.0000, lon: -75.5000 },  // ~200km
+    { shopName: "Shop G - 400km", lat: 42.5000, lon: -76.0000 },  // ~400km
+    { shopName: "Shop H - 600km", lat: 44.0000, lon: -77.5000 },  // ~600km
+    { shopName: "Shop I - 800km", lat: 45.5000, lon: -78.0000 },  // ~800km
+    { shopName: "Shop J - 1000km", lat: 47.0000, lon: -79.5000 }  ,
 
 
 
-    [
+    
         // {
         //   "name": "Electric Vehicle Charging Station",
         //   "address": "128, 2247, Trichy Rd, Krishnapuram Medu, Singanallur, Coimbatore",
@@ -51,8 +52,14 @@ const sampleData = [
         //   "address": "Lakshmi Mills Junction, Coimbatore",
         //   "latitude": 11.0185,
         //   "longitude": 76.9820
-        // }
-      ]
+        // },
+        // {
+        //     "name": "ibisss Coimbatore City Centre Charging Station",
+        //     "address": "Lakshmi Mills Junction, Coimbatore",
+        //     "latitude": 11.0186,
+        //     "longitude": 76.9829
+        //   }
+      
       
    
     
