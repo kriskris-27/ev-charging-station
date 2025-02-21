@@ -5,7 +5,6 @@ import { Route, Routes } from 'react-router-dom'
 import Aboutus from './pages/Aboutus'
 import StationPage from './pages/StationPage'
 import AdminLogin from './pages/AdminLogin'
-import Addstation from './pages/Addstation/Addstation'
 import ProRoute from './proRout/Proroute'
 
 
@@ -14,7 +13,7 @@ const App = () => {
     const [data,setData] = useState([])
     const [lat,setLat]=useState()
     const [lon,setLon]=useState()
-    const [isauth,setAuth]=useState()
+    const [isauth,setAuth]=useState(false)
   return (
     <>
     <Routes>
@@ -26,13 +25,13 @@ const App = () => {
         />}/>
         <Route path="about" element={<Aboutus/>}/>
         <Route path="location" element={<StationPage  data={data} lat={lat} lon={lon}/>}/>
-        <Route path="/admin" element={<AdminLogin/>}/>
+        <Route path="/admin" element={<AdminLogin setAuth={setAuth}/>}/>
 
 
 
         {/*Fallback*/}
         <Route path="*" element={<AdminLogin />} />
-        <Route path="/add" element={<ProRoute  data={isauth}/>} />
+        <Route path="/add" element={<ProRoute  isauth={isauth}/>} />
     </Routes>
     </>
   )

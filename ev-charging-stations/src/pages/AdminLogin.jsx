@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-const AdminLogin = () => {
+const AdminLogin = ({setAuth}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -22,14 +22,9 @@ const AdminLogin = () => {
             // If successful, set the token and authenticate the user
             const { token } = response.data;
             localStorage.setItem('authToken', token); // Store JWT token in localStorage
+
             setIsAuthenticated(true);
-            // if(setIsAuthenticated==true){
-            //     console.log("now its true")
-            // }
-            // else{
-            //     console.log("now its false");
-                
-            // }
+            
             setErrorMessage('');
         } catch (error) {
             setErrorMessage('Invalid credentials');
@@ -40,7 +35,9 @@ const AdminLogin = () => {
     };
     const navigate = useNavigate();
     const handleaddport = () => {
+        setAuth(true)
         navigate('/add')
+        
     }
 
 
