@@ -73,6 +73,7 @@ const HeroHeader = ({data,setData ,setLat,setLon}) => {
         
         <div className='hero-div'>
             <img className='hero-header'></img>
+            
         </div>
     </header>
     </>

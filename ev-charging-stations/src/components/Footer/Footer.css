@@ -87,13 +87,20 @@ li:hover{
 
  .foot-end{
     padding-top: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
  }
+ 
 
  @media (max-width: 768px) {
     .foot-top{
         flex-direction: column;
     }
     .foot-bottom{
+        flex-direction: column;
+    }
+    .foot-end{
         flex-direction: column;
     }
  }

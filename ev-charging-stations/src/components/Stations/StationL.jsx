@@ -82,7 +82,7 @@ const StationL = ({data,lat,lon}) => {
   
 
     <div>
-      <h1>Shops List</h1>
+      <h1>Stations List</h1>
         {data.map((shop, index) => (
           <li key={index}>
             <strong>{shop.shopName}</strong><br />

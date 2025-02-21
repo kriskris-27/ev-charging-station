@@ -1,6 +1,12 @@
 import './Footer.css';
+import { useNavigate } from 'react-router-dom';
 
 function Footer() {
+const navigate=useNavigate()
+  const handleUser = ()=>{
+    navigate('/admin')
+
+  }
     return (
         <>
             <div className="foot">
@@ -46,9 +52,13 @@ function Footer() {
                 </div>
                 <hr></hr>
                 <div className="foot-end">
+                    <div>
                     <h1 className="logos">Starlietti</h1>
-                    <p>© 2025 Kris. All right reserved.</p>
-
+                    <p>© 2025 Kris. All right reserved.</p>   
+                    </div>
+                    <div>
+                    <button onClick={handleUser}>Im Admin</button>
+                    </div>
                 </div>
             </div>
         </>
