@@ -6,6 +6,7 @@ const verifyToken = require("../middlewares/authMiddleware");
 
 // router.post("/register",register)
 router.post("/login",login)
+
 router.post('/addstation',verifyToken,async (req,res)=>{
     try{
         const {name,lat,lon} =req.body;
@@ -22,9 +23,7 @@ router.post('/addstation',verifyToken,async (req,res)=>{
         res.status(500).json({message:'Server error'});
 
     }
-    res.send('Station added successfully');
-    console.log('testing for station route');
-    
+   
 });
 
 module.exports=router

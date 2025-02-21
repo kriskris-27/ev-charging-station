@@ -16,7 +16,7 @@ const HeroHeader = ({data,setData ,setLat,setLon}) => {
                 // setlocation({latitude,longitude});
                 setLon(longitude);
                 setLat(latitude);
-                sendtoback({latitude,longitude});
+                sendtoback(latitude,longitude);
             },
         (error)=>{
             alert("Unable to retrieve location.Please enable location access.")
@@ -28,19 +28,13 @@ const HeroHeader = ({data,setData ,setLat,setLon}) => {
     
     const sendtoback =(lat,lon) => {
         const backurl='http://localhost:3005/api/testapi/locations';
-        const range = 300; 
+        const range = 30; 
         // range=300,
     //    const lat= 11.004556
     //    const lon = 77.028274
         // const range=500;
         fetch(backurl,{method:'POST',headers:{'Content-Type':'application/json',},
-        body:JSON.stringify({range,lat,lon,})
-       
-        // body:JSON.stringify({  
-        //     range:"300",
-        //     lat: "11.004556",
-        //     lon: "77.028274"
-        //    })
+        body:JSON.stringify({range,lat,lon})
         })
         .then((response)=>response.json())
         .then((data)=>{console.log('Location sent succesfully',data);

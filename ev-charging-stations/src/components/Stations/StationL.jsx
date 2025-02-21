@@ -67,12 +67,12 @@ const StationL = ({data,lat,lon}) => {
         />
         
         <Marker position={[ lat ,lon]} icon={redIcon}>
-          <Popup>hello world</Popup>
+          <Popup>You are here</Popup>
         </Marker> 
 {
     data.map((val)=>(
         <Marker position={[ val.lat, val.lon]}>
-          <Popup>val.shopName</Popup>
+          <Popup><a href="#" target='_blank'>{val.name}</a></Popup>
         </Marker> 
      ) )
 }
@@ -85,18 +85,10 @@ const StationL = ({data,lat,lon}) => {
       <h1>Stations List</h1>
         {data.map((shop, index) => (
           <li key={index}>
-            <strong>{shop.shopName}</strong><br />
-            Lat: {shop.lat}, Lon: {shop.lon}
+            <strong>{shop.name}</strong><br />
+            {/* Lat: {shop.lat}, Lon: {shop.lon} */}
           </li>
         ))}
-      <ul>
-        {data.map((shop, index) => (
-          <li key={index}>
-            <strong>{shop.shopName}</strong><br />
-          </li>
-        ))}
-      </ul>
-      
     </div>
     </>
   );

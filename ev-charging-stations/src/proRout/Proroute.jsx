@@ -1,7 +1,9 @@
 import Addstation from "../pages/Addstation/Addstation";
-import Home from "../pages/Home";
+
+import { Outlet, Navigate } from "react-router-dom";
+
 
 export default function ProRoute({isauth}){
     const state = isauth; //have to pass here
-    return state ? (<Addstation />) : (<Home /> )
+    return state ? (<Addstation />) : (<Navigate to="/" /> )
 }
