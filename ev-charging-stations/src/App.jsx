@@ -30,7 +30,7 @@ const App = () => {
 
 
         {/*Fallback*/}
-        <Route path="*" element={<AdminLogin />} />
+        <Route path="*" element={<d />} />
         <Route path="/add" element={<ProRoute  isauth={isauth}/>} />
     </Routes>
     </>

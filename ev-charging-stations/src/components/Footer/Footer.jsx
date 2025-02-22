@@ -27,7 +27,7 @@ const navigate=useNavigate()
                 <div className="foot-bottom">
                     <ul>
                         <h4>Quick Links</h4>
-                        <li><a>About Us</a></li>
+                        <li><a href='/about'>About Us</a></li>
                         <li><a>Contact Support</a></li>
                         <li><a>FAQ's</a></li>
                         <li><a>Blog</a></li>
