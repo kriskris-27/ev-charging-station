@@ -76,8 +76,13 @@ li:hover{
 .foot-bottom a{
     font-size:0.8rem ;
     margin:5px 0;
+    color: white;
+    text-decoration: none;
   }
 
+.foot-bottom a:hover{
+    color: #d9e99e;
+}
 
   .foot-bottom{
     display: flex;

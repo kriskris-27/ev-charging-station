@@ -6,6 +6,7 @@ import Aboutus from './pages/Aboutus'
 import StationPage from './pages/StationPage'
 import AdminLogin from './pages/AdminLogin'
 import ProRoute from './proRout/Proroute'
+import UnderConstruction from './pages/UnderConstr'
 
 
 
@@ -30,7 +31,7 @@ const App = () => {
 
 
         {/*Fallback*/}
-        <Route path="*" element={<d />} />
+        <Route path="*" element={<UnderConstruction/>} />
         <Route path="/add" element={<ProRoute  isauth={isauth}/>} />
     </Routes>
     </>
