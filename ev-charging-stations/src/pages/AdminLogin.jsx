@@ -14,7 +14,7 @@ const AdminLogin = ({setAuth}) => {
 
         try {
 
-            const response = await axios.post('http://localhost:3005/api/auth/login', {
+            const response = await axios.post('https://starlietti-evps.onrender.com/api/auth/login', {
                 username,
                 password,
             });
