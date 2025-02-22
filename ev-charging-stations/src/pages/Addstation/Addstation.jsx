@@ -43,7 +43,7 @@ const Addstation = () => {
         lon: markerPosition.lng,
       });
 
-      const response = await axios.post('http://localhost:3005/api/auth/addstation', {
+      const response = await axios.post('https://starlietti-evps.onrender.com/api/auth/addstation', {
         name: markerName,
         lat: markerPosition.lat,
         lon: markerPosition.lng,
