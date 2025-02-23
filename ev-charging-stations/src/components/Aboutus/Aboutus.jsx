@@ -16,7 +16,7 @@ const AboutUsPage = () => {
 
      
       <section className="company-overview">
-        <h1>Our Mission</h1>
+        <h3>Our Mission</h3>
         <p>At Starlietti, we aim to accelerate the transition to sustainable transportation by providing a user-friendly, data-driven tool that empowers EV drivers. Our goal is to make every journey stress-free and eco-friendly by ensuring you have the best information on charging station locations, availability, and pricing right at your fingertips.</p>
 
         <hr></hr>
