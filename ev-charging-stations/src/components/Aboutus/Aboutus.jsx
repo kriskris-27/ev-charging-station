@@ -10,29 +10,25 @@ const AboutUsPage = () => {
       {/* Header Section */}
       <section className="header-section">
         <h1>About Us</h1>
-        <p>We are on a mission to make sustainable energy accessible for everyone.</p>
+        <p>Welcome to Starlietti—the ultimate platform for finding EV charging stations wherever your journey takes you. We're on a mission to simplify your electric driving experience by connecting you with reliable, accessible, and up-to-date charging solutions..</p>
       </section>
       <hr></hr>
 
-      {/* Company Overview Section */}
+     
       <section className="company-overview">
         <h1>Our Mission</h1>
-        <p>We provide cutting-edge EV charging solutions to make the transition to electric vehicles easier and more accessible for everyone.</p>
+        <p>At Starlietti, we aim to accelerate the transition to sustainable transportation by providing a user-friendly, data-driven tool that empowers EV drivers. Our goal is to make every journey stress-free and eco-friendly by ensuring you have the best information on charging station locations, availability, and pricing right at your fingertips.</p>
 
         <hr></hr>
 
-        <h3>Our Vision</h3>
-        <p>Our vision is to build a global network of accessible, reliable, and eco-friendly charging stations.</p>
+        <h3>What We Do</h3>
+        <p>Interactive Maps: Easily locate nearby charging stations with our dynamic, user-friendly maps and many more .</p>
 
         <hr></hr>
 
-        <h3>Our Values</h3>
+        <h3>Join Us on the Journey</h3>
         <div className="lis">
-        <ul>
-          <li>Sustainability</li>
-          <li>Innovation</li>
-          <li>Customer-first</li>
-        </ul>
+        <p>Every charge brings us one step closer to a sustainable tomorrow. We invite you to join our community of eco-conscious drivers and be part of a movement that's redefining the way we power our lives.</p>
         </div>
       </section>
 
