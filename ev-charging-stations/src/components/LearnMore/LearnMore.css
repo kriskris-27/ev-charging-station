@@ -1,0 +1,209 @@
+.back-button {
+    position: fixed;
+    top: 80px;
+    left: 80px;
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.back-button svg {
+    color: #2c3e50;
+}
+
+.learn-more-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.learn-more-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.learn-more-header h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.learn-more-header p {
+    color: #7f8c8d;
+    font-size: 1.2rem;
+}
+
+.info-section {
+    margin-bottom: 4rem;
+}
+
+.info-section h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.charging-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.charging-type-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.charging-type-card:hover {
+    transform: translateY(-5px);
+}
+
+.charging-type-card h3 {
+    color: #3498db;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.charging-type-card p {
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+}
+
+.charging-type-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.charging-type-card li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.charging-type-card li:before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.tip-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tip-card h3 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.tip-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tip-card li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.tip-card li:before {
+    content: "✓";
+    color: #2ecc71;
+    position: absolute;
+    left: 0;
+}
+
+.environmental-info {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.environmental-info p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.benefits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-item {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.benefit-item h3 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-item p {
+    color: #7f8c8d;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .back-button {
+        top: 70px;
+        left: 60px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .learn-more-container {
+        padding: 1rem;
+    }
+
+    .learn-more-header h1 {
+        font-size: 2rem;
+    }
+
+    .charging-types,
+    .tips-grid,
+    .benefits-list {
+        grid-template-columns: 1fr;
+    }
+
+    .info-section {
+        margin-bottom: 2rem;
+    }
+} 

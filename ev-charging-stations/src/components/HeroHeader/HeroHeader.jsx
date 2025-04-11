@@ -74,7 +74,12 @@ const HeroHeader = ({data,setData ,setLat,setLon}) => {
             >
                 {isLoading ? 'SEARCHING...' : 'FIND CHARGING POINTS'}
             </button>
-            <button className="cta-button">Learn More</button>
+            <button 
+                className="cta-button"
+                onClick={() => navigate('/learn-more')}
+            >
+                Learn More
+            </button>
             </div>
             
         </div>

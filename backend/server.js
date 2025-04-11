@@ -4,6 +4,8 @@ const dotenv=require('dotenv').config();
 const authRoutes=require("./routes/authRoutes")
 const userRoutes =require("./routes/userRoutes")
 const mapRoutes = require("./routes/mapRoute")
+const updatesRoutes = require("./routes/updatesRoute")
+const stationRoutes = require('./routes/stationRoutes');
 
 const cors = require('cors');
 const app =express();
@@ -19,10 +21,12 @@ dbConnect();
  app.use("/api/auth",authRoutes)
  app.use("/api/users",userRoutes)
  app.use("/api/testapi",mapRoutes)
+ app.use("/api/updates", updatesRoutes)
+ app.use("/api/stations", stationRoutes);
 
 
 //start server
-const PORT=3005 || 3006
+const PORT=process.env.PORT || 3005 || 3006
 app.listen(PORT,(error)=>{
     if(!error)
         console.log("Server running successfully on port 3005 or 3006")

@@ -1,19 +1,33 @@
 const mongoose = require('mongoose');
 
 const stationSchema = new mongoose.Schema({
-    name:{
-        type:String,required:true
+    name: {
+        type: String,
+        required: true
     },
-    lat:{
-        type:Number,required:true
+    location: {
+        type: String,
+        required: true
     },
-    lon:{
-        type:Number,required:true
+    connectorType: {
+        type: String,
+        required: true,
+        enum: ['Type 1', 'Type 2', 'CCS', 'CHAdeMO', 'Tesla']
     },
-    // ports:{
-    //     type:Number,default:1
-    // },
-    createdAt: { type: Date, default: Date.now }
+    powerRating: {
+        type: String,
+        required: true
+    },
+    availability: {
+        type: Boolean,
+        default: true
+    },
+    price: {
+        type: String,
+        required: true
+    }
+}, {
+    timestamps: true
 });
 
-module.exports=mongoose.model('Station',stationSchema);
+module.exports = mongoose.model('Station', stationSchema);
