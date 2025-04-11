@@ -14,7 +14,7 @@ const Updates = () => {
     useEffect(() => {
         const fetchUpdates = async () => {
             try {
-                const response = await fetch('http://localhost:3005/api/updates/stations');
+                const response = await fetch('https://starlietti-evps.onrender.com/api/updates/stations');
                 if (!response.ok) {
                     throw new Error('Failed to fetch updates');
                 }
@@ -29,7 +29,7 @@ const Updates = () => {
 
         fetchUpdates();
         // Set up polling to check for new updates every 5 minutes
-        const interval = setInterval(fetchUpdates, 300000);
+        const interval = setInterval(fetchUpdates, 200000);
         return () => clearInterval(interval);
     }, []);
 
@@ -72,9 +72,9 @@ const Updates = () => {
                                     <span className="update-date">
                                         Added: {new Date(update.createdAt).toLocaleDateString()}
                                     </span>
-                                    <p>Location: {update.address}</p>
+                                    {/* <p>Location: {update.address}</p>
                                     <p>Type: {update.connectorType}</p>
-                                    <p>Power: {update.powerRating} kW</p>
+                                    <p>Power: {update.powerRating} kW</p> */}
                                 </div>
                             </div>
                         ))}
