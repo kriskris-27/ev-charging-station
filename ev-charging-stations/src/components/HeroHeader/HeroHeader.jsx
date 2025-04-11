@@ -3,11 +3,13 @@ import './HeroHeader.css'
 import { useNavigate } from 'react-router-dom';
 
 const HeroHeader = ({data,setData ,setLat,setLon}) => {
+    const [isLoading, setIsLoading] = useState(false);
     // console.log(data);
     
     const navigate =useNavigate();
     // const [location,setlocation]=useState(null);
     const handleLocationClick = () =>{
+        setIsLoading(true);
         alert('Location access requested! To locate charging points')
 
         if (navigator.geolocation) {
@@ -19,31 +21,40 @@ const HeroHeader = ({data,setData ,setLat,setLon}) => {
                 sendtoback(latitude,longitude);
             },
         (error)=>{
+            setIsLoading(false);
             alert("Unable to retrieve location.Please enable location access.")
         });
         } else{
+            setIsLoading(false);
             alert("Geolocation is not supported by this browser.")
         }
     };
     
-    const sendtoback =(lat,lon) => {
-        const backurl='https://starlietti-evps.onrender.com/api/testapi/locations';
+    const sendtoback = (lat,lon) => {
+        const backurl = 'http://localhost:3005/api/testapi/locations';
         const range = 30; 
    
-        fetch(backurl,{method:'POST',headers:{'Content-Type':'application/json',},
-        body:JSON.stringify({range,lat,lon})
+        fetch(backurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({range,lat,lon})
         })
-        .then((response)=>response.json())
-        .then((data)=>{console.log('Location sent succesfully',data);
-        
-            setData(data)
-            // console.log(data);
-            
-            navigate("/location")
-            
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then((data)=>{
+            console.log('Location sent successfully', data);
+            setData(data);
+            navigate("/location");
         })
         .catch((error)=>{
-            console.log('Error sending location',error);
+            console.error('Error sending location:', error);
+            alert("Error connecting to server. Please try again later.");
         });
     };
     
@@ -56,7 +67,13 @@ const HeroHeader = ({data,setData ,setLat,setLon}) => {
             Our innovative app helps you find electric vehicle charging stations in your vicinity with just a tap. Allow location access to unlock real-time information on availability, ratings, and more.
             </p>
             <div className="buttons">
-            <button className="cta-button" onClick={handleLocationClick}>FIND CHARGING POINTS </button>
+            <button 
+                className="cta-button" 
+                onClick={handleLocationClick}
+                disabled={isLoading}
+            >
+                {isLoading ? 'SEARCHING...' : 'FIND CHARGING POINTS'}
+            </button>
             <button className="cta-button">Learn More</button>
             </div>
             

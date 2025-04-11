@@ -1,0 +1,118 @@
+.back-button {
+    position: fixed;
+    top: 80px;
+    left: 80px;
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.back-button svg {
+    color: #2c3e50;
+}
+
+.stationlis {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    margin: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stationlis h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.stationlis ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.stationlis li {
+    background-color: white;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stationlis li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stationlis li strong {
+    color: #3498db;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stationlis h3 {
+    color: #e74c3c;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .back-button {
+        top: 70px;
+        left: 60px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .stationlis {
+        flex-direction: column;
+        padding: 1rem;
+        margin: 1rem;
+    }
+    
+    .stationlis h1 {
+        font-size: 1.5rem;
+    }
+    
+    .stationlis li {
+        padding: 1rem;
+    }
+
+    /* New styles for mobile view */
+    .stationlis > div:last-child {
+        order: -1; /* Move the location indicator to the top */
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+
+    .stationlis > div:last-child h3 {
+        margin: 0;
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+}

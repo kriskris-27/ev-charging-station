@@ -20,6 +20,7 @@ dbConnect();
  app.use("/api/users",userRoutes)
  app.use("/api/testapi",mapRoutes)
 
+
 //start server
 const PORT=3005 || 3006
 app.listen(PORT,(error)=>{
@@ -28,3 +29,8 @@ app.listen(PORT,(error)=>{
     else
         console.log("Error occured",error);
 })
+
+
+app.get('/',(req,res)=>{
+    res.send("HI from ev  API ")
+});
