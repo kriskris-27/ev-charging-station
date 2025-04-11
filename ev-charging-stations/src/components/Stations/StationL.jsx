@@ -14,46 +14,10 @@ const redIcon = new L.Icon({
 
 const StationL = ({data,lat,lon}) => {
     // console.log(data);
-    
-//   const [shops, setShops] = useState([]);
-
-//   useEffect(() => {
-//     const fetchShops = async () => {
-      // Static data for this example
-    //   const data = [
-    //     { "shopName": "Shop A - 200km", "lat": 41.7128, "lon": -73.006 },
-    //     { "shopName": "Shop B - 400km", "lat": 42.7128, "lon": -72.006 },
-    //     { "shopName": "Shop C - 600km", "lat": 43.7128, "lon": -71.006 },
-    //     { "shopName": "Shop D - 800km", "lat": 44.7128, "lon": -70.006 },
-    //     { "shopName": "Shop E - 1000km", "lat": 45.7128, "lon": -69.006 },
-    //     { "shopName": "Shop F - 200km", "lat": 41, "lon": -75.5 },
-    //     { "shopName": "Shop G - 400km", "lat": 42.5, "lon": -76 },
-    //     { "shopName": "Shop H - 600km", "lat": 44, "lon": -77.5 },
-    //     { "shopName": "Shop I - 800km", "lat": 45.5, "lon": -78 },
-    //     { "shopName": "Shop J - 1000km", "lat": 47, "lon": -79.5 }
-    //   ];
-    //   try{
-    //     const response = await fetch('http://localhost:3005/api/testapi/locations' , {method: 'POST'
-
-    //     });
-    //     const data = await response.json();
-    //     console.log('data fetched  from database' , data)
-    //     setShops(data)
-
-    //   }catch(error){
-    //     console.error('Error fetching locations ',error)
-    //   }
-      
-    // };
-
-//     fetchShops();
-//   }, []);
 
   return (
 
    <>
-
- 
     <div style={{ height: "400px", width: "100%", overflow: "hidden" }}>
       <MapContainer
         center={[lat ,lon]}

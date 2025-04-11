@@ -77,18 +77,26 @@
   
   /* Responsive Menu */
   @media (max-width: 768px) {
+    /* Start hidden with zero height & invisible */
     .menu {
-      display: none;
       flex-direction: column;
       gap: 10px;
+      /* overflow: hidden; */
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
     }
   
+    /* When the hamburger is clicked, add the "mobile-menu" class to reveal the menu */
     .menu.mobile-menu {
-      display: flex;
+      /* Set a max-height high enough to accommodate your menu items */
+      max-height: 500px;
+      opacity: 1;
     }
   
     .mobile-menu-toggle {
       display: block;
+      font-size: 2rem;
+      cursor: pointer;
     }
   }
-  

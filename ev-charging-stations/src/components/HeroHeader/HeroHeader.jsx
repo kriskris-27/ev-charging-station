@@ -29,10 +29,7 @@ const HeroHeader = ({data,setData ,setLat,setLon}) => {
     const sendtoback =(lat,lon) => {
         const backurl='https://starlietti-evps.onrender.com/api/testapi/locations';
         const range = 30; 
-        // range=300,
-    //    const lat= 11.004556
-    //    const lon = 77.028274
-        // const range=500;
+   
         fetch(backurl,{method:'POST',headers:{'Content-Type':'application/json',},
         body:JSON.stringify({range,lat,lon})
         })
