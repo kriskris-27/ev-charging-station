@@ -14,12 +14,21 @@ router.post('/locations', async (req, res) => {
         
         // Filter stations based on the provided range, latitude, and longitude
         const filteredStations = stations.filter(station => {
-            // Parse location string to get lat and lon
-            const [stationLat, stationLon] = station.location.split(',').map(coord => parseFloat(coord.trim()));
+            // Ensure station.location exists and is valid
+            if (!station.location) {
+                console.warn(`Station ${station._id} is missing location.`);
+                return false;
+            }
+            const locationParts = station.location.split(',');
+            if (locationParts.length !== 2) {
+                console.warn(`Station ${station._id} location format is invalid: ${station.location}`);
+                return false;
+            }
             
+            const [stationLat, stationLon] = locationParts.map(coord => parseFloat(coord.trim()));
             const point1 = { latitude: stationLat, longitude: stationLon };
             const point2 = { latitude: lat, longitude: lon };
-            const distance_km = (haversine(point1, point2)/1000); 
+            const distance_km = (haversine(point1, point2) / 1000);
             
             return distance_km <= range;
         });
