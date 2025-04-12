@@ -4,11 +4,18 @@ import L from 'leaflet';
 import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
 import { useNavigate } from 'react-router-dom';
-// import { FaArrowLeft } from 'react-icons/fa'; // Uncomment if using react-icons
+import { FaArrowLeft } from 'react-icons/fa'; // Uncomment if using react-icons
 
 // Fix default icons for Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({});
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
 
 const Addstation = () => {
   const navigate = useNavigate();
@@ -107,8 +114,8 @@ const Addstation = () => {
     <div style={{ width: '100%', height: '100vh' }}>
       <div className="back-button" onClick={() => navigate('/admin')}>
         {/* Uncomment the next line if you want to display an icon */}
-        {/* <FaArrowLeft /> */}
-        Back to Admin
+        <FaArrowLeft />
+        
       </div>
       <h2>Select a Location on the Map and Submit</h2>
       <div style={{ marginBottom: '10px' }}>
