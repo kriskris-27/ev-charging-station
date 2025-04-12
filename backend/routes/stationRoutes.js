@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Station = require('../models/stationModel');
-
+const verifyToken = require("../middlewares/authMiddleware");
 // Get all stations
 router.get('/', async (req, res) => {
     try {
@@ -12,27 +12,30 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Add a new station
-router.post('/', async (req, res) => {
-    const station = new Station({
-        name: req.body.name,
-        location: req.body.location,
-        connectorType: req.body.connectorType,
-        powerRating: req.body.powerRating,
-        availability: req.body.availability,
-        price: req.body.price
-    });
-
+router.post('/addstation', verifyToken, async (req, res) => {
     try {
-        const newStation = await station.save();
-        res.status(201).json(newStation);
+        const { name, lat, lon } = req.body;
+        console.log('Received request to add station:', { name, lat, lon });
+
+        if (!name || !lat || !lon) {
+            console.log('Missing required fields');
+            return res.status(400).json({ message: 'Name, latitude, longitude are required.' });
+        }
+
+        const newStation = new Station({
+            name, lat, lon
+        });
+        await newStation.save();
+        console.log('Station added successfully:', newStation);
+        res.status(201).json({ message: 'Station added successfully', station: newStation });
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        console.log('Server error:', error);
+        res.status(500).json({ message: 'Server error' });
     }
 });
 
 // Delete a station
-router.delete('/:id', async (req, res) => {
+router.delete('/:id',verifyToken, async (req, res) => {
     try {
         const deletedStation = await Station.findByIdAndDelete(req.params.id);
         if (!deletedStation) {

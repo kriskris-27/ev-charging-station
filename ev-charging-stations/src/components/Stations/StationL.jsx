@@ -5,71 +5,88 @@ import L from 'leaflet';
 import './StationL.css';
 import { useNavigate } from 'react-router-dom';
 
+// Red icon (your current location)
 const redIcon = new L.Icon({
-    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
-  });
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
 
-const StationL = ({data,lat,lon}) => {
-    const navigate = useNavigate();
+// Blue icon (other stations)
+const blueIcon = new L.Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-blue.png',
+  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41]
+});
 
-    const handleBackClick = () => {
-        navigate('/');
-    };
+const StationL = ({ data, lat, lon }) => {
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate('/');
+  };
 
   return (
-   <>
-    <div className="back-button" onClick={handleBackClick}>
+    <>
+      <div className="back-button" onClick={handleBackClick}>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          <path d="M19 12H5M12 19l-7-7 7-7" />
         </svg>
-    </div>
+      </div>
 
-    <div style={{ height: "400px", width: "100%", overflow: "hidden" }}>
-      <MapContainer
-        center={[lat ,lon]}
-        zoom={13}
-        scrollWheelZoom={true}
-        style={{ height: "100%", width: "100%" }} 
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        
-        <Marker position={[ lat ,lon]} icon={redIcon}>
-          <Popup>You are here</Popup>
-        </Marker> 
-{
-    data.map((val)=>(
-        <Marker position={[ val.lat, val.lon]}>
-          <Popup><a href="#" target='_blank'>{val.name}</a></Popup>
-        </Marker> 
-     ) )
-}
+      <div style={{ height: "400px", width: "100%", overflow: "hidden" }}>
+        <MapContainer
+          center={[lat, lon]}
+          zoom={13}
+          scrollWheelZoom={true}
+          style={{ height: "100%", width: "100%" }}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
 
-      </MapContainer>
-    </div>
-  
+          {/* Red marker for current location */}
+          <Marker position={[lat, lon]} icon={redIcon}>
+            <Popup>You are here</Popup>
+          </Marker>
 
-    <div className='stationlis'>
+          {/* Blue markers for stations */}
+          {data.map((val, index) => (
+            <Marker
+              key={index}
+              position={[val.lat, val.lon]}
+              icon={blueIcon}
+            >
+              <Popup>
+                <a href="#" target="_blank" rel="noopener noreferrer">{val.name}</a>
+              </Popup>
+            </Marker>
+          ))}
+        </MapContainer>
+      </div>
+
+      <div className='stationlis'>
         <div>
-      <h1>Stations List</h1>
-        {data.map((shop, index) => (
-          <li key={index}>
-            <strong>{shop.name}</strong><br />
-            {/* Lat: {shop.lat}, Lon: {shop.lon} */}
-          </li>
-        ))}
+          <h1>Stations List</h1>
+          {data.map((shop, index) => (
+            <li key={index}>
+              <strong>{shop.name}</strong><br />
+              {/* Lat: {shop.lat}, Lon: {shop.lon} */}
+            </li>
+          ))}
         </div>
-    
-    <div>
-        <h3 style={{color:"red"}}>Red is your current location</h3>
-    </div>
-    </div>
+
+        <div>
+          <h3 style={{ color: "red" }}>Red is your current location</h3>
+        </div>
+      </div>
     </>
   );
 };

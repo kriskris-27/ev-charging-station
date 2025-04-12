@@ -17,7 +17,7 @@ app.use(express.json())
 // Connect to MongoDB
 dbConnect();
 
-// Routeszzz
+// Routes
  app.use("/api/auth",authRoutes)
  app.use("/api/users",userRoutes)
  app.use("/api/testapi",mapRoutes)
@@ -30,7 +30,7 @@ const PORT=process.env.PORT || 3005 || 3006
 app.listen(PORT,(error)=>{
     if(!error)
         console.log("Server running successfully on port 3005 or 3006")
-  
+    else
         console.log("Error occured",error);
 })
 
