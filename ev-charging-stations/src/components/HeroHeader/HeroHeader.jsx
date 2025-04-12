@@ -33,7 +33,8 @@ const HeroHeader = ({data,setData ,setLat,setLon}) => {
     const sendtoback = (lat,lon) => {
         const backurl = 'https://starlietti-evps.onrender.com/api/testapi/locations';
         const range = 30; 
-   
+            console.log(range,lat,lon);
+            
         fetch(backurl, {
             method: 'POST',
             headers: {
