@@ -49,6 +49,8 @@ const HeroHeader = ({data,setData ,setLat,setLon}) => {
         })
         .then((data)=>{
             console.log('Location sent successfully', data);
+            console.log(data);
+            
             setData(data);
             navigate("/location");
         })
