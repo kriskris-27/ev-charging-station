@@ -1,6 +1,7 @@
 import Footer from "../components/Footer/Footer"
 import HeroHeader from "../components/HeroHeader/HeroHeader"
 import Navbar from "../components/Navbar/Navbar"
+import Updates from "../components/Updates/Updates"
 
 const Home = ({data,setData,setLat,setLon}) => {
   return (
@@ -11,6 +12,7 @@ const Home = ({data,setData,setLat,setLon}) => {
     setLon={setLon}
     setLat={setLat}
     />
+    <Updates/>
     <Footer/>
     </>
   )

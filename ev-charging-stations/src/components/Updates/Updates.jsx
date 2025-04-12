@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Updates.css';
-import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaChargingStation } from 'react-icons/fa';
 
@@ -14,7 +12,7 @@ const Updates = () => {
     useEffect(() => {
         const fetchUpdates = async () => {
             try {
-                const response = await fetch('http://localhost:3005/api/updates/stations');
+                const response = await fetch('https://starlietti-evps.onrender.com/api/updates/stations');
                 if (!response.ok) {
                     throw new Error('Failed to fetch updates');
                 }
@@ -35,7 +33,7 @@ const Updates = () => {
 
     return (
         <>
-            <Navbar />
+    
             <div className="updates-container">
                 <div className="back-button" onClick={() => navigate(-1)}>
                     <FaArrowLeft />
@@ -72,16 +70,15 @@ const Updates = () => {
                                     <span className="update-date">
                                         Added: {new Date(update.createdAt).toLocaleDateString()}
                                     </span>
-                                    <p>Location: {update.address}</p>
-                                    <p>Type: {update.connectorType}</p>
-                                    <p>Power: {update.powerRating} kW</p>
+                                    <p>Location:South India</p>
+                                    
                                 </div>
                             </div>
                         ))}
                     </div>
                 )}
             </div>
-            <Footer />
+        
         </>
     );
 };

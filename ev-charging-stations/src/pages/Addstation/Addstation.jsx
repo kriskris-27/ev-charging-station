@@ -50,7 +50,7 @@ const Addstation = () => {
       });
       // Update the URL based on your environment
       const response = await axios.post(
-        'http://localhost:3005/api/stations/addstation',
+        'https://starlietti-evps.onrender.com/api/stations/addstation',
         {
           name: markerName,
           lat: markerPosition.lat,
@@ -79,7 +79,7 @@ const Addstation = () => {
   const fetchStations = async () => {
     try {
       // Update the URL based on your environment
-      const response = await axios.get('http://localhost:3005/api/stations');
+      const response = await axios.get('https://starlietti-evps.onrender.com/api/stations');
       setStations(response.data);
     } catch (err) {
       console.error('Error fetching stations:', err);
@@ -96,7 +96,7 @@ const Addstation = () => {
   const handleDelete = async (stationId) => {
     try {
       // Update the URL based on your environment
-      const response = await axios.delete(`http://localhost:3005/api/stations/${stationId}`, {
+      const response = await axios.delete(`https://starlietti-evps.onrender.com/api/stations/${stationId}`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('authToken')}`
         }
