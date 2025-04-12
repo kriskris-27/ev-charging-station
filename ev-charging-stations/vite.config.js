@@ -15,7 +15,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      'react-icons/fa': path.resolve(__dirname, 'node_modules/react-icons/fa')
+      // Removed alias for react-icons/fa to let Vite resolve it naturally.
+      // 'react-icons/fa': path.resolve(__dirname, 'node_modules/react-icons/fa')
     }
   }
 })
