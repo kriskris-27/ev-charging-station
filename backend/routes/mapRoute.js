@@ -11,6 +11,7 @@ router.post('/locations', async (req, res) => {
     const { range, lat, lon } = req.body;
     try {
         const stations = await Station.find();
+        console.log("All stations from DB:", stations);
         
         // Filter stations based on the provided range, latitude, and longitude
         const filteredStations = stations.filter(station => {
@@ -32,6 +33,7 @@ router.post('/locations', async (req, res) => {
             
             return distance_km <= range;
         });
+        console.log("Filtered stations:", filteredStations);
 
         // Add distance to each station
         const stationsWithDistance = filteredStations.map(station => {
